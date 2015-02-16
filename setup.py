@@ -17,13 +17,13 @@ def get_readme():
 
 
 setup(
-    name='itunes-iap',
+    name='itunes-iap2',
     version=get_version(),
-    description='Itunes In-app purchase verification api.',
+    description='Apple iTunes In-app purchase verification api.',
     long_description=get_readme(),
-    author='Andy Briggs',
-    author_email='andy@sportsy.com',
-    url='https://github.com/sportsy/itunes-iap',
+    author='kiri1120',
+    author_email='kazuki.s1120@gmail.com',
+    url='https://github.com/nana-music/itunes-iap',
     packages=(
         'itunesiap',
     ),

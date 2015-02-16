@@ -1,8 +1,7 @@
-
+from __future__ import unicode_literals
 import json
 import requests
 import contextlib
-from six import u
 from . import exceptions
 
 
@@ -49,12 +48,10 @@ class Request(object):
         valid = None
         if self.result:
             valid = self.result['status'] == 0
-        return u'<Request(valid:{0}, data:{1}...)>'.format(valid, self.receipt[:20])
+        return '<Request(valid:{0}, data:{1}...)>'.format(valid, self.receipt[:20])
 
     def verify_from(self, url):
         """Try verification from given url."""
-        #If the password exists from kwargs, pass it up with the request, otherwise leave it alone
-        print json.dumps({'receipt-data': self.receipt, 'password': self.password})
         if len(self.password) > 1:
             self.response = requests.post(url, json.dumps({'receipt-data': self.receipt, 'password': self.password}), verify=False)
         else:
@@ -104,7 +101,7 @@ class Request(object):
 
 
 class Receipt(object):
-    """Pretty interface for decoded receipt obejct.
+    """Pretty interface for decoded receipt object.
     """
     def __init__(self, data):
         self.data = data
@@ -112,7 +109,7 @@ class Receipt(object):
         self.receipt_keys = list(self.receipt.keys())
 
     def __repr__(self):
-        return u'<Receipt({0}, {1})>'.format(self.status, self.receipt)
+        return '<Receipt({0}, {1})>'.format(self.status, self.receipt)
 
     @property
     def status(self):
